@@ -76,26 +76,3 @@ function loadMainPage()
 {
 	window.location.href = "index.html";
 }
-
-function login()
-{
-	Parse.initialize("Dv4oYn0Ri2yDSvvy5WjEDcflbUDCXwZlZvT5NReZ", "pAUAzo4IlTIXZfGSeGB4qOKgc0o2bK9ksxA84a02");
-	var user = new Parse.User();
-	user.set("username", "stbam");
-	user.set("password", "galaxyS2");
-	user.set("email", "stbamb@gmail.com.com");
-	  
-	// other fields can be set just like with Parse.Object
-	//user.set("phone", "650-555-0000");
-	  
-	user.signUp(null, {
-	  success: function(user) {
-		// Hooray! Let them use the app now.
-	  },
-	  error: function(user, error) {
-		// Show the error message somewhere and let the user try again.
-		alert("Error: " + error.code + " " + error.message);
-	  }
-	});
-}
-
