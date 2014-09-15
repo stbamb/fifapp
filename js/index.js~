@@ -8,21 +8,19 @@ function loadAllClubs()
 	query.find({
 	
 		success: function(results) {
-			text = '';
+			name = '';
 			imageURLs = [];
 
 			for (var i = 0; i < results.length; i++) { 
-				
+			
 				var object = results[i];
-				text = object.get('name');
-				//text += ' was created on ';
-				//text += object.get('year');		
-				//text += '.';				
+				name = object.get('name');		
 				imageURLs.push(object.get('logo'));
 				
 				if (imageURLs.length > 0) { 
-					$('#page-content-wrapper').append("<p>" + text + "</p>");
-					$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
+					
+					$('#page-content-wrapper').append("<p><a href = 'aboutTeam.html'>" + name + "</a></p>");
+					$('#page-content-wrapper').append("<a href = javascript:retrieveClubInfo('" + object.id + "')><img src='" + imageURLs[i].url() + "'></a>"); 
 				}	
 			}
 		},
@@ -30,6 +28,12 @@ function loadAllClubs()
 			//alert("Error: " + error.code + " " + error.message);
 		}
 	});
+}
+
+function retrieveClubInfo(name)
+{
+	window.location.href = "javascript:saveValue('" + name + "')";
+	//window.location.href = "aboutTeam.html";
 }
 
 function upload()
