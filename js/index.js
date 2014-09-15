@@ -19,7 +19,7 @@ function loadAllClubs()
 				
 				if (imageURLs.length > 0) { 
 					
-					$('#page-content-wrapper').append("<p><a href = 'aboutTeam.html'>" + name + "</a></p>");
+					$('#page-content-wrapper').append("<p><a href = javascript:retrieveClubInfo('" + object.id + "')>" + name + "</a></p>");
 					$('#page-content-wrapper').append("<a href = javascript:retrieveClubInfo('" + object.id + "')><img src='" + imageURLs[i].url() + "'></a>"); 
 				}	
 			}
