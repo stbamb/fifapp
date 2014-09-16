@@ -8,14 +8,15 @@ function loadClub()
 		success: function(result) {
 			name = result.get('name');
 			url = result.get('logo');
-			info = result.get('extraInfo');	
-			$('#page-content-wrapper').append("<p>" + name + "</p>");
-			$('#page-content-wrapper').append("<img src='" + url.url() + "'/>"); 
-			$('#page-content-wrapper').append("<p>" + info + "</p>"); 
+			league = result.get('league');
+			info = result.get('extraInfo');
+			$('#page-content-wrapper').append("<h2><font color='blue'>" + name + "</font></h2>");
+			$('#page-content-wrapper').append("<img src='" + url.url() + "'/><br><br>"); 
+			$('#page-content-wrapper').append("<p>" + name + " plays in " + league + ".</p>"); 
 		},
 		error: function(error) {
 			//alert("Error: " + error.code + " " + error.message);
-		}
+		} 
 	});
 }
 
