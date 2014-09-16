@@ -68,8 +68,9 @@
                         <h1>Football Clubs</h1>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                         <br><br>
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-						</fb:login-button>
+                        <div id = fb-root>
+                        	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,12 +80,6 @@
     </div>
     <!-- /#wrapper -->  
     
-    <div
-	  class="fb-like"
-	  data-share="true"
-	  data-width="450"
-	  data-show-faces="true">
-	</div>    
     <script src = "js/index.js" onload = "loadAllClubs()"></script>
 
     <!-- jQuery Version 1.11.0 -->
