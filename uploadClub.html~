@@ -71,6 +71,9 @@
 							League: <input id = "fcleague" type="text" name="league"><br>
 							Logo: <input id = "fclogo" type = "file" name = "logo"><br><br>
 							<input type="button" onclick = "upload()" value="Create Club"><br><br>
+							<div id = "fb-root">
+		                    	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+		                    </div>
  						</form>
                     </div>
                 </div>
