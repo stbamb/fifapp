@@ -9,6 +9,7 @@ function statusChangeCallback(response)
     if (response.status === 'connected') 
     {
       // Logged into your app and Facebook.
+      testAPI();
       alert('You are already logged into Facebook as ' + response.name);
       
     } 
