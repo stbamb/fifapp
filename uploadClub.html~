@@ -12,6 +12,7 @@
     <script src = "js/searchResults.js" type="text/javascript"></script> 
     <script src = "js/uploadClub.js" type="text/javascript"></script> 
 	<script src = "js/aboutTeam.js" type="text/javascript"></script>
+	<script src = "js/facebook.js"></script>
 	<link rel="shortcut icon" href="img/favicon.ico"/>
     <title>Create Club</title>
 
