@@ -1,9 +1,3 @@
-function searchClubs()
-{
-	searchByLeague();
-	searchByName();
-}
-
 function searchByLeague()
 {
 	$('#page-content-wrapper').html("<p></p>"); // para vaciar el contenido, alistar para la siguiente busqueda
