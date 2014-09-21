@@ -1,4 +1,4 @@
-unction searchClubs()
+function searchClubs()
 {
 	searchByLeague();
 	searchByName();
