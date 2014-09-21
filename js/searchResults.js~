@@ -6,19 +6,13 @@ function searchByLeague()
 	imageURLs = [];
 	Parse.Cloud.run('searchByLeague', {league: clubLeague}, {
 	  success: function(result) {
-	  	if (result.length == 0)
+	  	for (var i = 0; i < result.length; i++)
 	  	{
-	  		$('#page-content-wrapper').append("<p>No clubs matched your criteria</p>");
-	  	}
-	  	else
-	  	{
-		  	for (var i = 0; i < result.length; i++)
-		  	{
-			  	var object = result[i];
-			  	imageURLs.push(object.get('logo'));
-			  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
-			  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
-			}
+		  	var object = result[i];
+		  	imageURLs.push(object.get('logo'));
+		  	<h2><font color='blue'>" + name + "</font></h2>
+		  	$('#page-content-wrapper').append("<h2><font color='blue'>" + object.get('name') + "</font></h2>");
+		  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
 		}
 	  },
 	  error: function(error) { }
@@ -33,19 +27,12 @@ function searchByName()
 	imageURLs = [];
 	Parse.Cloud.run('searchByName', {name: clubName}, {
 	  success: function(result) {
-	  	if (result.length == 0)
+	  	for (var i = 0; i < result.length; i++)
 	  	{
-	  		$('#page-content-wrapper').append("<p>No clubs matched your criteria</p>");
-	  	}
-	  	else
-	  	{
-		  	for (var i = 0; i < result.length; i++)
-		  	{
-			  	var object = result[i];
-			  	imageURLs.push(object.get('logo'));
-			  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
-			  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
-			}
+		  	var object = result[i];
+		  	imageURLs.push(object.get('logo'));
+		  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
+		  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
 		}
 	  },
 	  error: function(error) { }

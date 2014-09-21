@@ -10,7 +10,8 @@ function searchByLeague()
 	  	{
 		  	var object = result[i];
 		  	imageURLs.push(object.get('logo'));
-		  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
+		  	<h2><font color='blue'>" + name + "</font></h2>
+		  	$('#page-content-wrapper').append("<h2><font color='blue'>" + object.get('name') + "</font></h2>");
 		  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
 		}
 	  },
@@ -30,7 +31,7 @@ function searchByName()
 	  	{
 		  	var object = result[i];
 		  	imageURLs.push(object.get('logo'));
-		  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
+		  	$('#page-content-wrapper').append("<h2><font color='blue'>" + object.get('name') + "</font></h2>");
 		  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
 		}
 	  },
