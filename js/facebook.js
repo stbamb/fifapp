@@ -10,7 +10,7 @@ function statusChangeCallback(response)
     {
       // Logged into your app and Facebook.
       testAPI();
-      alert('You are already logged into Facebook as ' + response.name);
+      //alert('You are already logged into Facebook as ' + response.name);
       
     } 
     else if (response.status === 'not_authorized') 
