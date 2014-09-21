@@ -67,7 +67,7 @@
                     	<h1>Search Clubs</h1>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     	<form name="input">
-							<br><br>League Name: <input id = "fcleague-search" type="text" name="league"><br><br>
+							<br><br>League Name: <input id = "fc-search" type="text" name="league"><br><br>
 							<input type="button" onclick = "searchByLeague()" value="Search Club">
  						</form>
                     </div>

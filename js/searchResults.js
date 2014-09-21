@@ -1,3 +1,9 @@
+function searchClubs()
+{
+	searchByLeague();
+	searchByName();
+}
+
 function searchByLeague()
 {
 	$('#page-content-wrapper').html("<p></p>"); // para vaciar el contenido, alistar para la siguiente busqueda
@@ -6,12 +12,19 @@ function searchByLeague()
 	imageURLs = [];
 	Parse.Cloud.run('searchByLeague', {league: clubLeague}, {
 	  success: function(result) {
-	  	for (var i = 0; i < result.length; i++)
+	  	if (result.length == 0)
 	  	{
-		  	var object = result[i];
-		  	imageURLs.push(object.get('logo'));
-		  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
-		  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
+	  		$('#page-content-wrapper').append("<p>No clubs matched your criteria</p>");
+	  	}
+	  	else
+	  	{
+		  	for (var i = 0; i < result.length; i++)
+		  	{
+			  	var object = result[i];
+			  	imageURLs.push(object.get('logo'));
+			  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
+			  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
+			}
 		}
 	  },
 	  error: function(error) { }
@@ -26,12 +39,19 @@ function searchByName()
 	imageURLs = [];
 	Parse.Cloud.run('searchByName', {name: clubName}, {
 	  success: function(result) {
-	  	for (var i = 0; i < result.length; i++)
+	  	if (result.length == 0)
 	  	{
-		  	var object = result[i];
-		  	imageURLs.push(object.get('logo'));
-		  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
-		  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
+	  		$('#page-content-wrapper').append("<p>No clubs matched your criteria</p>");
+	  	}
+	  	else
+	  	{
+		  	for (var i = 0; i < result.length; i++)
+		  	{
+			  	var object = result[i];
+			  	imageURLs.push(object.get('logo'));
+			  	$('#page-content-wrapper').append("<p>" + object.get('name') + "</p>");
+			  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
+			}
 		}
 	  },
 	  error: function(error) { }
