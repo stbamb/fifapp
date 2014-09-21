@@ -1,6 +1,7 @@
 function upload()
 {
-	username = localStorage.username;
+	facebookUsername = localStorage.username;
+	alert("username stored: " + facebookUsername);
 	Parse.initialize("Dv4oYn0Ri2yDSvvy5WjEDcflbUDCXwZlZvT5NReZ", "pAUAzo4IlTIXZfGSeGB4qOKgc0o2bK9ksxA84a02");
 	var clubname = document.getElementById('fcname').value;
 	var clubleague = document.getElementById('fcleague').value;

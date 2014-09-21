@@ -1,5 +1,6 @@
 function upload()
 {
+	username = localStorage.username;
 	Parse.initialize("Dv4oYn0Ri2yDSvvy5WjEDcflbUDCXwZlZvT5NReZ", "pAUAzo4IlTIXZfGSeGB4qOKgc0o2bK9ksxA84a02");
 	var clubname = document.getElementById('fcname').value;
 	var clubleague = document.getElementById('fcleague').value;
@@ -17,6 +18,7 @@ function upload()
 	newClub.set("name", clubname);
 	newClub.set("league", clubleague);	
 	newClub.set("logo", parseFile);
+	newClub.set("username", username);
 	newClub.save();
 	
 	
