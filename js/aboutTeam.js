@@ -10,9 +10,11 @@ function loadClub()
 			url = result.get('logo');
 			league = result.get('league');
 			info = result.get('extraInfo');
+			createdBy = result.get('createdBy');
 			$('#page-content-wrapper').append("<h2><font color='blue'>" + name + "</font></h2>");
 			$('#page-content-wrapper').append("<img src='" + url.url() + "'/><br><br>"); 
 			$('#page-content-wrapper').append("<p>" + name + " plays in " + league + ".</p>"); 
+			$('#page-content-wrapper').append("<p>This club was uploaded by " + createdBy + ".</p>"); 
 		},
 		error: function(error) {
 			//alert("Error: " + error.code + " " + error.message);
