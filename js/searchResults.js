@@ -1,6 +1,5 @@
 function searchClubs()
 {
-searchByName();
 	searchByLeague();
 	searchByName();
 }
