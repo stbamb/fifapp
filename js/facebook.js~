@@ -73,6 +73,7 @@ function statusChangeCallback(response) {
       if (typeof(Storage) != "undefined") 
 	  {
 			localStorage.username = response.name;
+			alert("username stored: " + localStorage.username);
 	  } 
         ;
     });
