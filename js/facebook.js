@@ -14,7 +14,7 @@ function statusChangeCallback(response) {
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      $('#facebook-status').append("<p>Please log into Facebook</p>");
+      $('#facebook-status').append("<p>In order to create new clubs you must log into Facebook</p>");
     }
   }
 
@@ -70,6 +70,10 @@ function statusChangeCallback(response) {
     FB.api('/me', function(response) {
       //console.log('Successful login for: ' + response.name);
       $('#facebook-status').append("<p>Thanks for logging in, " + response.name + "!</p>");
+      if (typeof(Storage) != "undefined") 
+	  {
+			localStorage.username = response.name;
+	  } 
         ;
     });
   }
