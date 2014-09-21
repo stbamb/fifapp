@@ -10,7 +10,6 @@ function searchByLeague()
 	  	{
 		  	var object = result[i];
 		  	imageURLs.push(object.get('logo'));
-		  	<h2><font color='blue'>" + name + "</font></h2>
 		  	$('#page-content-wrapper').append("<h2><font color='blue'>" + object.get('name') + "</font></h2>");
 		  	$('#page-content-wrapper').append("<img src='" + imageURLs[i].url() + "'/>"); 
 		}
