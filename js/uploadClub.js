@@ -18,13 +18,13 @@ function upload()
 	newClub.set("name", clubname);
 	newClub.set("league", clubleague);	
 	newClub.set("logo", parseFile);
-	newClub.set("username", facebookUsername);
+	newClub.set("createdBy", facebookUsername);
 	newClub.save();
 	
 	
 	newClub.save(null, {success: function(sucess) 
 	{
-		alert(clubname + " " + " succesfully created!");
+		alert(clubname + " succesfully created!");
 		document.location.reload(true);
   	},
   	
