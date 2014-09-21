@@ -73,9 +73,6 @@
 							Logo: <input id = "fclogo" type = "file" name = "logo"><br><br>
 							<input type="button" onclick = "upload()" value="Create Club"><br><br>
  						</form>
- 						<div id = "fb-root">
-	                    	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-	                    </div>
                     </div>
                 </div>
             </div>
@@ -83,18 +80,10 @@
         <!-- /#page-content-wrapper -->
         
         <!-- Facebook Status -->
-        <div id="page-content-wrapper">
+        <div id="facebook-status">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Create Club</h1>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a><br><br>
-                        <form name="input">
-							Name: <input id = "fcname" type="text" name="name"><br>
-							League: <input id = "fcleague" type="text" name="league"><br>
-							Logo: <input id = "fclogo" type = "file" name = "logo"><br><br>
-							<input type="button" onclick = "upload()" value="Create Club"><br><br>
- 						</form>
  						<div id = "fb-root">
 	                    	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 	                    </div>
