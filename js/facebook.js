@@ -1,86 +1,79 @@
-window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '683911448365082', // Set YOUR APP ID
-      channelUrl : 'http://files.parsetfss.com/8b6b30bb-d33b-40a6-9fac-f3d8ee991c0f/tfss-cfe1661e-fc0e-4554-86f5-cc78c26bd192-channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
+function statusChangeCallback(response) {
+    //console.log('statusChangeCallback');
+    //console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      $('#facebook-status').append("<p>Please log into this app</p>");
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      $('#facebook-status').append("<p>In order to create new clubs you must log into Facebook</p>");
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
     });
- 
-    FB.Event.subscribe('auth.authResponseChange', function(response) 
-    {
-     if (response.status === 'connected') 
-    {
-        getUserInfo();
-        //SUCCESS
- 
-    }    
-    else if (response.status === 'not_authorized') 
-    {
-        $('#facebook-status').append("<p>Please log into this app</p>");
-        //FAILED
-    } else 
-    {
-        $('#facebook-status').append("<p>In order to create new clubs you must log into Facebook</p>");
-        //UNKNOWN ERROR
-    }
-    }); 
- 
-    };
- 
-    function Login()
-    {
- 
-        FB.login(function(response) {
-           if (response.authResponse) 
-           {
-                getUserInfo();
-            } else 
-            {
-             //console.log('User cancelled login or did not fully authorize.');
-            }
-         },{scope: 'profile, user_friends, email'});
- 
-    }
- 
-  function getUserInfo() { 
-        FB.api('/me', function(response) {
- 		  $('#facebook-status').append("<p>Thanks for logging in, " + response.name + "!</p>");
-      var str="<b>Name</b> : "+response.name+"<br>";
-          str +="<b>Link: </b>"+response.link+"<br>";
-          str +="<b>Username:</b> "+response.username+"<br>";
-          str +="<b>id: </b>"+response.id+"<br>";
-          str +="<b>Email:</b> "+response.email+"<br>";
-          str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
-          str +="<input type='button' value='Logout' onclick='Logout();'/>";
-          if (typeof(Storage) != "undefined") 
-	  	  {
-			  localStorage.username = response.name;
-	  	  } 
-	  //document.getElementById("status").innerHTML=str;
- 
-    });
-    }
-    function getPhoto()
-    {
-      FB.api('/me/picture?type=normal', function(response) {
- 
-          var str="<br/><b>Pic</b> : <img src='"+response.data.url+"'/>";
-          document.getElementById("status").innerHTML+=str;
- 
-    });
- 
-    }
-    function Logout()
-    {
-        FB.logout(function(){document.location.reload();});
-    }
- 
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '683911448365082',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.1' // use version 2.1
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
   // Load the SDK asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    //console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      //console.log('Successful login for: ' + response.name);
+      $('#facebook-status').append("<p>Thanks for logging in, " + response.name + "!</p>");
+      if (typeof(Storage) != "undefined") 
+	  {
+			localStorage.username = response.name;
+	  } 
+        ;
+    });
+  }
