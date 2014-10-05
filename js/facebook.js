@@ -43,7 +43,7 @@ window.fbAsyncInit = function() {
  
     }
  
-  function getUserInfo() {
+  function getUserInfo() { 
         FB.api('/me', function(response) {
  		  $('#facebook-status').html("<p>Thanks for logging in, " + response.name + "!</p>");
       var str="<b>Name</b> : "+response.name+"<br>";
