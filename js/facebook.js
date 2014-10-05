@@ -11,7 +11,7 @@ window.fbAsyncInit = function() {
     {
      if (response.status === 'connected') 
     {
-        document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
+        getUserInfo();
         //SUCCESS
  
     }    
