@@ -39,7 +39,7 @@ window.fbAsyncInit = function() {
             {
              //console.log('User cancelled login or did not fully authorize.');
             }
-         },{scope: 'email,user_photos,user_videos'});
+         },{scope: 'profile, user_friends, email'});
  
     }
  
