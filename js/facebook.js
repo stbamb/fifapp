@@ -1,7 +1,7 @@
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '683911448365082', // Set YOUR APP ID
-      channelUrl : 'http://hayageek.com/examples/oauth/facebook/oauth-javascript/channel.html', // Channel File
+      channelUrl : 'http://files.parsetfss.com/8b6b30bb-d33b-40a6-9fac-f3d8ee991c0f/tfss-cfe1661e-fc0e-4554-86f5-cc78c26bd192-channel.html', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
