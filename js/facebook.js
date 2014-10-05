@@ -17,11 +17,11 @@ window.fbAsyncInit = function() {
     }    
     else if (response.status === 'not_authorized') 
     {
-        $('#facebook-status').append("<p>Please log into this app</p>");
+        $('#facebook-status').html("<p>Please log into this app</p>");
         //FAILED
     } else 
     {
-        $('#facebook-status').append("<p>In order to create new clubs you must log into Facebook</p>");
+        $('#facebook-status').html("<p>In order to create new clubs you must log into Facebook</p>");
         //UNKNOWN ERROR
     }
     }); 
@@ -45,7 +45,7 @@ window.fbAsyncInit = function() {
  
   function getUserInfo() {
         FB.api('/me', function(response) {
- 		  $('#facebook-status').append("<p>Thanks for logging in, " + response.name + "!</p>");
+ 		  $('#facebook-status').html("<p>Thanks for logging in, " + response.name + "!</p>");
       var str="<b>Name</b> : "+response.name+"<br>";
           str +="<b>Link: </b>"+response.link+"<br>";
           str +="<b>Username:</b> "+response.username+"<br>";
