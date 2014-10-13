@@ -1,4 +1,4 @@
 Fifapp
 ======
 
-PhoneGap/Cordova Labs
+PhoneGap/Cordova Labs || TEC
